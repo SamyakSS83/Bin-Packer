@@ -210,11 +210,11 @@ from packer import RectanglePacker, PackedRectangle  # Assuming you've made the 
 import os
 
 
-def main():
+def main(input_file, output_file):
     """
     Main function to run the rectangle packing process.
     """
-    input_file_path = "D:/col215/1.txt"
+    
     rectangles = parse_input_file(input_file_path)
 
     naive_packed_rectangles = generate_naive_solution(rectangles)
@@ -229,7 +229,7 @@ def main():
     naive_bounds = determine_bounding_box(naive_packed_rectangles)
     packing_efficiency = calculate_packing_efficiency(rectangles, optimal_bounds)
     bounding_box_width, bounding_box_height = optimal_bounds.dimensions
-    output_file_path = "D:/col215/2.txt"
+    
 
     # Write the results to the output file
     save_results_to_file(
@@ -258,19 +258,21 @@ def main():
         print("Pygame not found. Installing...")
         subprocess.check_call([sys.executable, "-m", "pip", "install", "pygame"])
 
-    visualizer = Visualize(optimal_packed_rectangles, optimal_bounds)
-    visualizer.display()
-    
     """
-    Implementation of the provided visualizing tool
+    Implementation of the new visualizing tool
     """
+
+    # visualizer = Visualize(optimal_packed_rectangles, optimal_bounds)
+    # visualizer.display()
     
-    # root = visualize_gates( "D:/col215/2.txt", "D:/col215/1.txt", (50,50))
-    # root.mainloop()
+
+    
+    root = visualize_gates( input_file, output_file, (50,50))
+    root.mainloop()
   
 
     
 
 # Runs the code.
 if __name__ == "__main__":
-    main()
+    main("input.txt", "output.txt")
