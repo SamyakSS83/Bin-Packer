@@ -206,7 +206,7 @@ import random
 
 import time
 import numpy as np
-from packer import RectanglePacker, PackedRectangle  # Assuming you've made the changes to packer.py as well
+from packer import RectanglePacker, PackedRectangle  
 import os
 
 
@@ -235,10 +235,6 @@ def main(input_file, output_file):
     save_results_to_file(
         rectangles, optimal_packed_rectangles, output_file_path, bounding_box_width, bounding_box_height
     )
-
-    # This is slow
-    # if not is_solution_valid(optimal_packed_rectangles):
-    #     print("Solution invalid.  Overlap detected.")
 
     print("Dimensions of solution are {}.".format(optimal_bounds.dimensions))
     print("Perimeter of solution is {}.".format(optimal_bounds.calculate_perimeter()))
